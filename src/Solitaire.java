@@ -1,9 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 import java.util.logging.FileHandler;
 
 public class Solitaire {
@@ -18,15 +15,15 @@ public class Solitaire {
                  while (!deck.isEmpty()){
                      Card card = deck.removeFirst();
                      ArrayList<String> moves  =new ArrayList<>();
-                     if (piles.isEmpty())
+                     ArrayDeque<Card> pile = new ArrayDeque<>();
+                     pile.addFirst(card);
+                     piles.add(pile);
+                     for (ListIterator i = piles.listIterator();i.hasNext();)
                      {
-                         ArrayDeque<Card> firstPile = new ArrayDeque<>();
-                         firstPile.addFirst(card);
-                         piles.add(firstPile);
-                     }
-                     else if (piles.size()>=2){
-                         
-
+                         if (i.hasPrevious())
+                         {
+                             
+                         }
                      }
                  }
              }
@@ -41,7 +38,6 @@ public class Solitaire {
         {
             lineTwo = sc.nextLine();
             String deckString = lineOne +" "+ lineTwo;
-            System.out.println(deckString);
             String[] deckArray = deckString.split(" ");
             for (String s: deckArray)
             {
